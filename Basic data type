@@ -1,0 +1,40 @@
+
+""" decimal """
+
+
+import decimal 
+from decimal import Decimal
+
+
+decimal.getcontext().prec = 4 # set how many digits
+d = Decimal(1) / Decimal (11)
+ 
+
+""" String """
+
+t = 'this is a string object'
+t.capitalize()
+t.split()
+t.find('this') # if there do not have that word, it will response -1
+t.replace('','|') # change character
+t.strip('this')
+
+
+
+""" date """
+import re
+series = """
+'01/18/2014 13:00:00', 100, '1st'; '01/18/2014 13:30:00', 110, '2nd';
+'01/18/2014 14:00:00', 120, '3rd' """
+dt = re.compile("'[0-9/:\s]+'") # datetime
+result = dt.findall(series)
+result
+
+
+from datetime import datetime
+pydt = datetime.strptime(result[0].replace("'", ""), '%m/%d/%Y %H:%M:%S')
+pydt
+print(pydt)
+print(type(pydt))
+
+
