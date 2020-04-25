@@ -57,3 +57,78 @@ plt.legend(loc=0)
 plt.ylabel('value 2nd')
 
 
+""" subplot chart """
+plt.figure(figsize=(7, 5)) 
+plt.subplot(211) 
+plt.plot(y[:, 0], lw=1.5, label='1st') 
+plt.plot(y[:, 0], 'ro') 
+plt.grid(True) 
+plt.legend(loc=0) 
+plt.axis('tight') 
+plt.ylabel('value') 
+plt.title('A Simple Plot') 
+plt.subplot(212) 
+plt.plot(y[:, 1], 'g', lw=1.5, label='2nd') 
+plt.plot(y[:, 1], 'ro') 
+plt.grid(True) 
+plt.legend(loc=0) 
+plt.axis('tight') 
+plt.xlabel('index') 
+plt.ylabel('value')
+
+
+""" subplot line chart + bar chart """
+plt.figure(figsize=(9, 4))
+plt.subplot(121)
+plt.plot(y[:,0], lw=1.5, label='1st')
+plt.plot(y[:,0], 'ro')
+plt.grid(True)
+plt.legend(loc=0)
+plt.axis('tight')
+plt.xlabel('index')
+plt.ylabel('value')
+plt.title('line chart')
+plt.subplot(122)
+plt.bar(np.arange(len(y)), y[:,1], width=0.5, color='g', label='2nd')
+plt.grid(True)
+plt.legend(loc=0)
+plt.xlabel('index')
+plt.title('Bar chart')
+
+""" scatterplot """
+y = np.random.standard_normal((1000,2))
+
+plt.figure(figsize = (7,5))
+plt.plot(y[:,0], y[:,1], 'ro')
+plt.grid(True)
+plt.xlabel('index')
+plt.ylabel('value')
+plt.title('Scatter plot')
+
+#-------
+plt.figure(figsize = (7,5))
+plt.scatter(y[:,0], y[:,1], marker = 'o')
+plt.grid(True)
+plt.xlabel('index')
+plt.ylabel('value')
+
+
+""" scatter different colour """
+c = np.random.randint(0, 10, len(y))
+
+plt.figure(figsize = (7,5))
+plt.scatter(y[:,0], y[:,1], c=c, marker='o')
+plt.colorbar()
+plt.grid(True)
+plt.xlabel('1st')
+plt.ylabel('2nd')
+plt.title('scatter plot with different color')
+
+""" histogram """
+plt.figure(figsize=(7,4))
+plt.hist(y, label=['1','2'], bin = 25)
+plt.grid(True)
+plt.legend(loc=0)
+plt.xlabel('value')
+plt.ylavel('frequency')
+plt.title('histogram')
